@@ -85,12 +85,12 @@ export default {
   preview: {
     select: {
       title: "title",
-      videoId: "videoId",
+      client: "client",
     },
     prepare(selection) {
-      const { videoId } = selection;
+      const { client } = selection;
       return Object.assign({}, selection, {
-        subtitle: videoId && `Video ID: ${videoId}`,
+        subtitle: client && `${client}`,
       });
     },
   },
