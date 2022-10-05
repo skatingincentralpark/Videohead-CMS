@@ -8,11 +8,12 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "media"
+    "media",
+    "order-documents"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": ["@sanity/vision", "order-documents"]
     }
   },
   "parts": [

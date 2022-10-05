@@ -10,6 +10,12 @@ export default {
   views: [S.view.component(JsonView).title("JSON").icon(DocumentIcon)],
   fields: [
     {
+      name: "order",
+      title: "Order",
+      type: "number",
+      hidden: true,
+    },
+    {
       name: "title",
       title: "Title",
       type: "string",
