@@ -9,11 +9,15 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "media",
-    "order-documents"
+    "order-documents",
+    "cloudinary"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision", "order-documents"]
+      "plugins": [
+        "@sanity/vision",
+        "order-documents"
+      ]
     }
   },
   "parts": [
