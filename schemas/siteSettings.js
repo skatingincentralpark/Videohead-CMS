@@ -27,11 +27,17 @@ export default {
       type: "string",
       group: "seo",
     },
+    // {
+    //   name: "landingVideo",
+    //   description: "This video appears on the home page",
+    //   title: "Landing Video",
+    //   type: "file",
+    // },
     {
-      name: "landingVideo",
-      description: "This video appears on the home page",
-      title: "Landing Video",
-      type: "file",
+      name: "landingVideoCloudinary",
+      title: "Landing Video (Cloudinary)",
+      description: "This video appears on the homepage",
+      type: "cloudinary.asset",
     },
     {
       name: "description",
