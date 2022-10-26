@@ -27,12 +27,6 @@ export default {
       type: "string",
       group: "seo",
     },
-    // {
-    //   name: "landingVideo",
-    //   description: "This video appears on the home page",
-    //   title: "Landing Video",
-    //   type: "file",
-    // },
     {
       name: "landingVideoCloudinary",
       title: "Landing Video (Cloudinary)",
@@ -50,13 +44,6 @@ export default {
           "Shorter is usually better for the SEO purposes, try to keep it under 150 characters"
         ),
       group: "seo",
-    },
-    {
-      name: "blurb",
-      title: "Blurb",
-      description:
-        "This field allows you to compose rich text. What makes it special is that content is stored as an array of JSON objects describing the rich text content. It's customisable and extensible.",
-      type: "blockContent",
     },
     {
       name: "logo",

@@ -25,6 +25,7 @@ export default {
       name: "client",
       title: "Client",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "date",
@@ -45,13 +46,6 @@ export default {
       ],
       validation: (Rule) => Rule.max(4),
     },
-    // {
-    //   name: "gifsCloudinary",
-    //   title: "Gifs (Cloudinary)",
-    //   description: "POC to serve assets from Cloudinary",
-    //   type: "array",
-    //   of: [{ type: "cloudinary.asset" }],
-    // },
     {
       name: "category",
       title: "Category",
