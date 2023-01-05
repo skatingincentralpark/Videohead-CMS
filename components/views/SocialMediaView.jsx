@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Flex, Box, Label, Stack, Heading, Text } from "@sanity/ui";
 import PropTypes from "prop-types";
-import { urlFor } from "../../helpers/image-url-builder";
+// import { urlFor } from "../../helpers/image-url-builder";
 import styled from "styled-components";
 
 /**

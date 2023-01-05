@@ -1,52 +1,50 @@
-import { DocumentIcon, RocketIcon } from "@sanity/icons";
-import { JsonView } from "../components/views/JsonView";
-import S from "@sanity/desk-tool/structure-builder";
+import { defineType, defineField, defineArrayMember } from "sanity";
+import { RocketIcon } from "@sanity/icons";
 
-export default {
-  name: "musicVideo",
+export default defineType({
+  name: "video",
   title: "Music Video",
   type: "document",
-  icon: RocketIcon,
-  views: [S.view.component(JsonView).title("JSON").icon(DocumentIcon)],
+  icon: RocketIcon as any,
   fields: [
-    {
+    defineField({
       name: "order",
       title: "Order",
       type: "number",
       hidden: true,
-    },
-    {
+    }),
+    defineField({
       name: "title",
       title: "Title",
       type: "string",
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "client",
       title: "Client",
       type: "string",
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "date",
       title: "Date",
       type: "date",
-    },
-    {
+    }),
+    defineField({
       name: "gifs",
       title: "GIFS",
       description:
         "These will appear on the landing page, place a maximum of 4",
       type: "array",
       of: [
-        {
+        defineArrayMember({
           title: "Image",
           type: "mainImage",
-        },
+        }),
       ],
       validation: (Rule) => Rule.max(4),
-    },
-    {
+    }),
+    defineField({
       name: "category",
       title: "Category",
       description: "Category of your video",
@@ -60,8 +58,8 @@ export default {
         layout: "radio",
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "source",
       title: "Video Source",
       description: "Where is this video uploaded?",
@@ -74,20 +72,20 @@ export default {
         layout: "radio",
       },
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "videoId",
       title: "Video ID",
       type: "string",
       description:
         'When you click share, it is the ID at the end of the URL.  E.g. "https://youtu.be/98yFlEQ6reQ", "https://vimeo.com/390907489"',
       validation: (Rule) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "blockContent",
-    },
+    }),
   ],
   preview: {
     select: {
@@ -101,4 +99,4 @@ export default {
       });
     },
   },
-};
+});

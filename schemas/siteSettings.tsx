@@ -1,18 +1,11 @@
-import S from "@sanity/desk-tool/structure-builder";
-import { JsonView } from "../components/views/JsonView";
-import { SocialMediaView } from "../components/views/SocialMediaView";
-import { CogIcon, DocumentIcon, EyeOpenIcon } from "@sanity/icons";
+import { defineType, defineField } from "sanity";
+import { CogIcon } from "@sanity/icons";
 
-export default {
+export default defineType({
   name: "siteSettings",
   title: "Site settings",
   type: "document",
-  icon: CogIcon,
-  __experimental_actions: [/*"create",*/ "update", /*'delete',*/ "publish"],
-  views: [
-    S.view.component(SocialMediaView).title("Preview").icon(EyeOpenIcon),
-    S.view.component(JsonView).title("JSON").icon(DocumentIcon),
-  ],
+  icon: CogIcon as any,
   groups: [
     {
       name: "seo",
@@ -27,12 +20,12 @@ export default {
     //   type: "string",
     //   group: "seo",
     // },
-    {
+    defineField({
       name: "landingVideoCloudinary",
       title: "Landing Video (Cloudinary)",
       description: "This video appears on the homepage",
       type: "cloudinary.asset",
-    },
+    }),
     // {
     //   name: "description",
     //   title: "SEO Description",
@@ -96,4 +89,4 @@ export default {
       };
     },
   },
-};
+});
