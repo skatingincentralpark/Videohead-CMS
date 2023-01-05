@@ -64,3 +64,4 @@ TODO
 tsconfig.tsbuildinfo
 .vercel
 .vscode
+.DS_Store
