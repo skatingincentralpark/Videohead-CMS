@@ -14,9 +14,6 @@ export default {
       type: "string",
       title: "Caption",
       description: "Important for SEO and accessiblity.",
-      options: {
-        isHighlighted: true,
-      },
     },
   ],
   preview: {

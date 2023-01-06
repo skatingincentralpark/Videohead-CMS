@@ -1,5 +1,5 @@
 import blockContent from "./blockContent";
-import video from "./musicVideo";
+import video from "./video";
 import siteSettings from "./siteSettings";
 import link from "./link";
 import mainImage from "./mainImage";

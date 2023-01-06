@@ -4,6 +4,7 @@ import { deskTool } from "sanity/desk";
 import { structure, getDefaultDocumentNode } from "./deskStructure";
 
 import { cloudinarySchemaPlugin } from "sanity-plugin-cloudinary";
+import { media } from "sanity-plugin-media";
 
 export default defineConfig({
   name: "videohead",
@@ -16,6 +17,7 @@ export default defineConfig({
       defaultDocumentNode: getDefaultDocumentNode,
     }),
     cloudinarySchemaPlugin(),
+    media(),
   ],
   schema: {
     types: schemaTypes as any,

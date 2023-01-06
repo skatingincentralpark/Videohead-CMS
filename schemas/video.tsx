@@ -3,14 +3,14 @@ import { RocketIcon } from "@sanity/icons";
 
 export default defineType({
   name: "video",
-  title: "Music Video",
+  title: "Video",
   type: "document",
   icon: RocketIcon as any,
   fields: [
     defineField({
-      name: "order",
+      name: "orderRank",
       title: "Order",
-      type: "number",
+      type: "string",
       hidden: true,
     }),
     defineField({
