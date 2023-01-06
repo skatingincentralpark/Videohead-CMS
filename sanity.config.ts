@@ -3,7 +3,9 @@ import schemaTypes from "./schemas/schema";
 import { deskTool } from "sanity/desk";
 import { structure, getDefaultDocumentNode } from "./deskStructure";
 
+// Plugins
 import { cloudinarySchemaPlugin } from "sanity-plugin-cloudinary";
+import { visionTool } from "@sanity/vision";
 import { media } from "sanity-plugin-media";
 
 export default defineConfig({
@@ -17,6 +19,7 @@ export default defineConfig({
       defaultDocumentNode: getDefaultDocumentNode,
     }),
     cloudinarySchemaPlugin(),
+    visionTool(),
     media(),
   ],
   schema: {
