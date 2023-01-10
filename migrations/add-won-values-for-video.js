@@ -4,16 +4,19 @@ import sanityClient from "@sanity/client";
 const client = sanityClient.withConfig({ apiVersion: "2021-10-21" });
 
 const fetchDocuments = () =>
-  client.fetch(`*[_type == 'musicVideo'][0...100] {_id, _rev, _type}`);
+  client.fetch(`*[_type == 'video'][0...100] {_id, _rev, _type}`);
 
 const buildPatches = (docs) =>
   docs.map((doc) => ({
     id: doc._id,
     patch: {
-      set: { _type: "video" },
-      //   unset: ["name"],
-      // this will cause the migration to fail if any of the documents has been
-      // modified since it was fetched.
+      set: {
+        award: {
+          won: false,
+          description: "",
+          url: "",
+        },
+      },
       ifRevisionID: doc._rev,
     },
   }));

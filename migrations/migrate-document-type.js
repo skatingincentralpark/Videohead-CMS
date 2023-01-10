@@ -1,4 +1,4 @@
-import sanityClient from "part:@sanity/base/client";
+import sanityClient from "@sanity/client";
 
 const client = sanityClient.withConfig({ apiVersion: "2021-10-21" });
 
