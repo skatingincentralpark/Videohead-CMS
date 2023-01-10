@@ -31,6 +31,27 @@ export default defineType({
       type: "date",
     }),
     defineField({
+      name: "award",
+      title: "Award",
+      type: "object",
+      validation: (Rule) => Rule.required(),
+      fields: [
+        {
+          title: "Won",
+          name: "won",
+          type: "boolean",
+          initialValue: false,
+        },
+        {
+          title: "URL",
+          description: "Link to the article or publication of award",
+          name: "url",
+          type: "url",
+          initialValue: "",
+        },
+      ],
+    }),
+    defineField({
       name: "gifs",
       title: "GIFS",
       description:
