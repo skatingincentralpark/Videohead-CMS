@@ -1,5 +1,11 @@
 import { JsonView } from "./components/views/JsonView";
-import { CogIcon, EditIcon, EyeOpenIcon, DocumentIcon } from "@sanity/icons";
+import {
+  CogIcon,
+  EditIcon,
+  EyeOpenIcon,
+  DocumentIcon,
+  RocketIcon,
+} from "@sanity/icons";
 import { SocialMediaView } from "./components/views/SocialMediaView";
 import type { StructureBuilder, StructureResolverContext } from "sanity/desk";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
@@ -9,19 +15,45 @@ const excludedDocumentTypes = ["video", "siteSettings", "media.tag", "link"];
 export const structure = (
   S: StructureBuilder,
   context: StructureResolverContext
-) =>
-  S.list()
+) => {
+  return S.list()
     .title("Content")
     .items([
-      S.listItem()
-        .title("Work")
-        .schemaType("video")
-        .child(S.documentTypeList("video").title("Work")),
+      // S.listItem()
+      //   .title("Personal Videos")
+      //   .schemaType("video")
+      //   .child(
+      //     S.documentTypeList("video")
+      //       .title("Videos by Category")
+      //       .filter('_type == "video" && category == "personal"')
+      //   ),
+
+      // S.listItem()
+      //   .title("Work")
+      //   .schemaType("video")
+      //   .child(
+      //     S.documentTypeList("video")
+      //       .title("Work")
+      //       .filter('_type == "video" && category != "personal"')
+      //   ),
+
       orderableDocumentListDeskItem({
         type: "video",
-        title: "Work Order",
+        title: "Work",
+        icon: RocketIcon as any,
         S,
         context,
+        filter: '_type == "video" && category != "personal"',
+      }),
+
+      orderableDocumentListDeskItem({
+        type: "video",
+        id: "personal-video",
+        title: "Personal Work",
+        icon: RocketIcon as any,
+        S,
+        context,
+        filter: '_type == "video" && category == "personal"',
       }),
 
       S.divider(),
@@ -51,6 +83,7 @@ export const structure = (
         (listItem) => !excludedDocumentTypes.includes(listItem.getId() || "")
       ),
     ]);
+};
 
 export const getDefaultDocumentNode = (S: StructureBuilder) => {
   return S.document().views([

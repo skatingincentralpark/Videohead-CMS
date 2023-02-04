@@ -20,6 +20,23 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "category",
+      title: "Category",
+      description:
+        'Selecting personal will have it appear in "Personal Work", in the sidebar.  It will also be shown on the personal page, on the website',
+      type: "string",
+      options: {
+        list: [
+          { title: "Music Video", value: "music-video" },
+          { title: "Film", value: "film" },
+          { title: "Commercial", value: "commercial" },
+          { title: "Personal", value: "personal" },
+        ],
+        layout: "radio",
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: "client",
       title: "Client",
       type: "string",
@@ -64,21 +81,6 @@ export default defineType({
         }),
       ],
       validation: (Rule) => Rule.max(4),
-    }),
-    defineField({
-      name: "category",
-      title: "Category",
-      description: "Category of your video",
-      type: "string",
-      options: {
-        list: [
-          { title: "Music Video", value: "music-video" },
-          { title: "Film", value: "film" },
-          { title: "Commercial", value: "commercial" },
-        ],
-        layout: "radio",
-      },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "source",
