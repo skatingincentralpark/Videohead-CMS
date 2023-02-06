@@ -20,17 +20,43 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "pagesToShowOn",
+      description: "Videohead is the /work page",
+      title: "Pages to show on",
+      type: "object",
+      options: {
+        columns: 3,
+      },
+      fields: [
+        {
+          title: "Videohead",
+          name: "videohead",
+          type: "boolean",
+          initialValue: true,
+          options: {
+            layout: "checkbox",
+          },
+        },
+        {
+          title: "Raghav",
+          name: "raghav",
+          type: "boolean",
+          initialValue: false,
+          options: {
+            layout: "checkbox",
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "category",
       title: "Category",
-      description:
-        'Selecting personal will have it appear in "Personal Work", in the sidebar.  It will also be shown on the personal page, on the website',
       type: "string",
       options: {
         list: [
           { title: "Music Video", value: "music-video" },
           { title: "Film", value: "film" },
           { title: "Commercial", value: "commercial" },
-          { title: "Personal", value: "personal" },
         ],
         layout: "radio",
       },
@@ -58,6 +84,12 @@ export default defineType({
           name: "won",
           type: "boolean",
           initialValue: false,
+        },
+        {
+          title: "Title",
+          name: "title",
+          type: "string",
+          initialValue: "",
         },
         {
           title: "URL",

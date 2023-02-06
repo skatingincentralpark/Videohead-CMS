@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 // Run using: node_modules/.bin/sanity exec --with-user-token migrations/add-won-values-for-video.js
 
+// Update pagesToShowOn value
+// Remove order field
+
 import { getCliClient } from "sanity/cli";
 
 const client = getCliClient().withConfig({ apiVersion: "2022-09-09" });
@@ -12,15 +15,11 @@ const buildPatches = (docs) =>
   docs.map((doc) => ({
     id: doc._id,
     patch: {
-      // set: {
-      //   award: {
-      //     won: false,
-      //     description: "",
-      //     url: "",
-      //   },
-      // },
-      unset: {
-        award: { description },
+      set: {
+        pagesToShowOn: {
+          raghav: false,
+          videohead: true,
+        },
       },
       ifRevisionID: doc._rev,
     },
