@@ -1,17 +1,16 @@
 import { defineType, defineField, defineArrayMember } from "sanity";
 import { RocketIcon } from "@sanity/icons";
+import { orderRankField } from "@sanity/orderable-document-list";
 
 export default defineType({
   name: "video",
   title: "Video",
   type: "document",
   icon: RocketIcon as any,
+
   fields: [
-    defineField({
-      name: "orderRank",
-      title: "Order",
-      type: "string",
-      hidden: true,
+    orderRankField({
+      type: "video",
     }),
     defineField({
       name: "title",
@@ -95,7 +94,7 @@ export default defineType({
           title: "URL",
           description: "Link to the article or publication of award",
           name: "url",
-          type: "url",
+          type: "string",
           initialValue: "",
         },
       ],
